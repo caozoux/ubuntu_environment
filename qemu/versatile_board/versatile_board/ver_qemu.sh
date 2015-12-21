@@ -9,6 +9,9 @@ case $1 in
 	-c)
 		make -C ~/github/linux-stable/ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- O=~/cach/versatile_board_out vexpress_defconfig
 		;;
+	-t)
+		qemu-system-arm -M vexpress-a15 -nographic -kernel ~/github/u-boot/u-boot.bin 
+		;;
 	*)
 		echo "need your input as follow: "
 		echo "	ver_qemu.sh -r: run the qemu"
