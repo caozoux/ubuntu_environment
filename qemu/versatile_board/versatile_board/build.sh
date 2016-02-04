@@ -1,6 +1,6 @@
-#make -C ~/github/linux-stable/ ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- O=~/cach/versatile_board_out vexpress_defconfig
-#make -C ~/github/linux-stable/ ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- O=~/cach/versatile_board_out -j12
-qemu-system-arm -M vexpress-a15 -nographic -kernel  ~/cach/versatile_board_out/arch/arm/boot/zImage -dtb ~/cach/versatile_board_out/arch/arm/boot/dts/vexpress-v2p-ca15_a7.dtb  -initrd initramfs2  -serial stdio --append "console=ttyAMA0 root=/dev/ram rdinit=/sbin/init"
+make -C ~/github/linux-stable/ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- O=~/cach/versatile_board_out vexpress_defconfig
+make -C ~/github/linux-stable/ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- O=~/cach/versatile_board_out -j12
+qemu-system-arm -nographic -M vexpress-a15 -kernel  ~/cach/versatile_board_out/arch/arm/boot/zImage -dtb ~/cach/versatile_board_out/arch/arm/boot/dts/vexpress-v2p-ca15_a7.dtb  -initrd initramfs2  -serial stdio --append "console=ttyAMA0 root=/dev/ram rdinit=/sbin/init"
 #qemu-system-arm -M vexpress-a15 -kernel  ~/cach/versatile_board_out/arch/arm/boot/zImage -dtb ~/cach/versatile_board_out/arch/arm/boot/dts/vexpress-v2p-ca15_a7.dtb  -serial stdio --append "console=ttyAMA0"
 
 exit

@@ -12,6 +12,9 @@ case $1 in
 	-t)
 		qemu-system-arm -M vexpress-a15 -nographic -kernel ~/github/u-boot/u-boot.bin 
 		;;
+	-gdb)
+		gnome-terminal -x bash -c "qemu-system-arm -nographic -gdb tcp::1234 -S -M vexpress-a15 -kernel  ~/cach/versatile_board_out/arch/arm/boot/zImage -dtb ~/cach/versatile_board_out/arch/arm/boot/dts/vexpress-v2p-ca15_a7.dtb  -initrd initramfs2  -serial stdio --append \"console=ttyAMA0 root=/dev/ram rdinit=/sbin/init\""
+		;;
 	*)
 		echo "need your input as follow: "
 		echo "	ver_qemu.sh -r: run the qemu"
